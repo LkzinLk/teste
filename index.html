@@ -1,78 +1,132 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Achados Geniais | Os melhores achados da Amazon</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Achados Geniais</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --bg:#0f172a;
-  --card:#111827;
-  --border:#1f2933;
-  --text:#fff;
-  --muted:#94a3b8;
-  --accent:linear-gradient(135deg,#6366f1,#8b5cf6);
+:root {
+  --bg-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  --card-bg: rgba(255,255,255,0.08);
+  --card-border: rgba(255,255,255,0.12);
+  --text-main: #ffffff;
+  --text-muted: #cbd5e1;
+  --button-gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
 }
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:var(--bg);color:var(--text);display:flex;justify-content:center;padding:24px}
-.container{width:100%;max-width:440px}
-header{text-align:center;margin-bottom:32px}
-.logo{width:100px;height:100px;background:#fff;border-radius:24px;margin:0 auto 16px;padding:10px}
-.logo img{width:100%;height:100%;object-fit:contain}
-h1{font-size:26px;font-weight:800}
-.subtitle{font-size:14px;color:var(--muted)}
 
-.section-title{margin:26px 0 12px;font-size:16px;font-weight:700}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
 
-.card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:20px;
-  padding:16px;
-  display:flex;
-  gap:14px;
-  margin-bottom:16px;
+body {
+  min-height: 100vh;
+  background: var(--bg-gradient);
+  display: flex;
+  justify-content: center;
+  padding: 24px;
 }
-.badge{
-  font-size:11px;
-  font-weight:700;
-  background:#ef4444;
-  padding:4px 8px;
-  border-radius:999px;
-  display:inline-block;
-  margin-bottom:6px;
+
+.container {
+  width: 100%;
+  max-width: 420px;
 }
-.product-img{
-  width:70px;height:70px;
-  background:#fff;
-  border-radius:14px;
-  overflow:hidden;
-  flex-shrink:0;
+
+.header {
+  text-align: center;
+  margin-bottom: 32px;
 }
-.product-img img{width:100%;height:100%;object-fit:cover}
-.card-content h2{font-size:15px;font-weight:700;margin-bottom:4px}
-.card-content p{font-size:13px;color:var(--muted);margin-bottom:10px}
-.btn{
-  display:inline-flex;
-  padding:10px 16px;
-  background:var(--accent);
-  color:#fff;
-  text-decoration:none;
-  font-size:14px;
-  font-weight:700;
-  border-radius:12px;
+
+h1 {
+  color: var(--text-main);
+  font-size: 28px;
+  font-weight: 700;
 }
-footer{
-  margin-top:32px;
-  font-size:12px;
-  color:var(--muted);
-  text-align:center;
-  line-height:1.5;
+
+.subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.card {
+  display: flex;
+  gap: 14px;
+  padding: 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  margin-bottom: 18px;
+  position: relative;
+}
+
+.card.hot {
+  border: 2px solid #facc15;
+}
+
+.badge-hot {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #facc15;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.product-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.card-content h2 {
+  font-size: 16px;
+  color: var(--text-main);
+  margin-bottom: 4px;
+}
+
+.card-content p {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  padding: 10px 16px;
+  background: var(--button-gradient);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+.btn.hot-btn {
+  animation: pulse 1.2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+footer {
+  text-align: center;
+  margin-top: 32px;
+  font-size: 12px;
+  color: var(--text-muted);
 }
 </style>
 </head>
@@ -80,88 +134,100 @@ footer{
 <body>
 <div class="container">
 
-<header>
-  <div class="logo">
-    <img src="logo-achados-geniais.png">
-  </div>
+<header class="header">
   <h1>Achados Geniais</h1>
-  <p class="subtitle">Os achados mais úteis e virais da Amazon 🔥</p>
+  <p class="subtitle">Descontos & utilidades imperdíveis</p>
 </header>
 
-<div class="section-title">🔥 Em alta hoje</div>
-<div id="emAlta"></div>
+<div id="produtos">
 
-<div class="section-title">🛍️ Achados imperdíveis</div>
-<div id="listaProdutos"></div>
+  <!-- PRODUTO 1 -->
+  <div class="card" data-id="aspirador">
+    <div class="product-img"></div>
+    <div class="card-content">
+      <h2>Aspirador Portátil 2 em 1</h2>
+      <p>Prático e potente</p>
+      <a class="btn" href="https://www.amazon.com.br/dp/B0D21BFF1X" target="_blank"
+         onclick="registrarClique('aspirador')">Ver no Amazon</a>
+    </div>
+  </div>
+
+  <!-- PRODUTO 2 -->
+  <div class="card" data-id="echo">
+    <div class="product-img"></div>
+    <div class="card-content">
+      <h2>Echo Show 5</h2>
+      <p>Alexa com tela</p>
+      <a class="btn" href="https://amzn.to/4pDUKBO" target="_blank"
+         onclick="registrarClique('echo')">Ver no Amazon</a>
+    </div>
+  </div>
+
+  <!-- ADICIONE OS OUTROS PRODUTOS IGUAL -->
+</div>
 
 <footer>
-© Achados Geniais<br>
-Este site participa do Programa de Associados da Amazon.
-Podemos receber comissão por compras qualificadas.
+© Achados Geniais
 </footer>
 
 </div>
 
 <script>
-const produtos = [
-{ id:1,img:"aspirador.png",nome:"Aspirador de Pó Portátil 2 em 1",desc:"Prático, portátil e potente — ótimo achado!",link:"https://www.amazon.com.br/dp/B0D21BFF1X"},
-{ id:2,img:"echo-show-5.png",nome:"Echo Show 5",desc:"Alexa com tela inteligente pra sua casa.",link:"https://amzn.to/4pDUKBO"},
-{ id:3,img:"mini-projetor.png",nome:"Mini Projetor Portátil Full HD",desc:"Transforme qualquer ambiente em cinema.",link:"https://amzn.to/3Ypz68h"},
-{ id:4,img:"luminaria-sensor.png",nome:"Luminária com Sensor de Movimento",desc:"Acende sozinha no escuro.",link:"https://amzn.to/3XT3s2Q"},
-{ id:5,img:"camera-360.png",nome:"Câmera de Segurança Wi-Fi 360°",desc:"Monitore sua casa em tempo real.",link:"https://amzn.to/48Gadvi"},
-{ id:6,img:"fechadura-smart.png",nome:"Fechadura Eletrônica Digital",desc:"Mais segurança e praticidade.",link:"https://amzn.to/3MzKUlS"},
-{ id:7,img:"suporte-celular.png",nome:"Suporte Articulado para Celular",desc:"Use o celular com as mãos livres.",link:"https://amzn.to/4oWYa1o"},
-{ id:8,img:"luminaria-estrelada.png",nome:"Luminária LED Estrelada RGB",desc:"Efeito estrelado incrível.",link:"https://amzn.to/3XWYHp6"},
-{ id:9,img:"limpeza-ultrassonica.png",nome:"Limpeza Ultrassônica",desc:"Para óculos, joias e mais.",link:"https://amzn.to/3N4JiAD"},
-{ id:10,img:"dispenser-sabao.png",nome:"Dispensador Automático de Sabão",desc:"Higiene sem toque.",link:"https://amzn.to/3XV9RdY"},
-{ id:11,img:"suporte-veicular-celular.png",nome:"Suporte Veicular Magnético",desc:"Celular seguro no carro.",link:"https://amzn.to/495992X"},
-{ id:12,img:"carregador-veicular-120w.png",nome:"Carregador Veicular 120W",desc:"Carga rápida no carro.",link:"https://amzn.to/4j0TIgB"},
-{ id:13,img:"organizador-cabos.png",nome:"Organizador Magnético de Cabos",desc:"Mesa sem bagunça.",link:"https://amzn.to/4pWyvac"},
-{ id:14,img:"mini-seladora.png",nome:"Mini Seladora Portátil",desc:"Conserve alimentos.",link:"https://amzn.to/4pHNWTF"},
-{ id:15,img:"organizador-geladeira.png",nome:"Organizador de Geladeira",desc:"Geladeira organizada.",link:"https://amzn.to/4jcWiR0"},
-{ id:16,img:"depilador.png",nome:"Depilador Removedor de Pelos",desc:"Remove pelos rapidamente.",link:"https://amzn.to/4pN8sCv"},
-{ id:17,img:"lixeira-sensor.png",nome:"Lixeira Automática com Sensor",desc:"Mais higiene.",link:"https://amzn.to/3MXsDPv"},
-{ id:18,img:"organizador-maquiagem.png",nome:"Organizador de Maquiagem",desc:"Tudo no lugar.",link:"https://amzn.to/498ZOY1"},
-{ id:19,img:"escova-limpeza.png",nome:"Escova de Limpeza Elétrica",desc:"Limpeza sem esforço.",link:"https://amzn.to/45l9MUM"},
-{ id:20,img:"luminaria-touch.png",nome:"Luminária Touch",desc:"Iluminação moderna.",link:"https://amzn.to/3MQchbx"},
-{ id:21,img:"organizador-sapatos.png",nome:"Organizador de Sapatos",desc:"Mais espaço no armário.",link:"https://amzn.to/3KWN3HT"},
-{ id:22,img:"papa-bolinha.png",nome:"Removedor de Fiapos",desc:"Roupas como novas.",link:"https://amzn.to/3L9Kfah"},
-{ id:23,img:"mini-umidificador.png",nome:"Mini Umidificador USB",desc:"Melhora o ar.",link:"https://amzn.to/4pPpH64"},
-{ id:24,img:"esponja-silicone.png",nome:"Esponja de Silicone",desc:"Não junta bactérias.",link:"https://amzn.to/4pboV20"},
-{ id:25,img:"rodo-magico.png",nome:"Rodo Mágico 2 em 1",desc:"Limpeza prática.",link:"https://amzn.to/4pdSq3m"},
-{ id:26,img:"led-vaso-sanitario.png",nome:"LED para Vaso Sanitário",desc:"Luz automática.",link:"https://amzn.to/4q5UDiQ"}
-];
+const STORAGE_KEY = "cliquesProdutos";
+const WEEK_KEY = "semanaAtual";
 
-const semanaAtual = Math.floor(Date.now() / (7*24*60*60*1000));
-if(localStorage.getItem("semana") != semanaAtual){
-  localStorage.clear();
-  localStorage.setItem("semana", semanaAtual);
+function getSemanaAtual() {
+  const now = new Date();
+  const onejan = new Date(now.getFullYear(),0,1);
+  return Math.ceil((((now - onejan) / 86400000) + onejan.getDay()+1)/7);
 }
 
-function clique(id){
-  localStorage.setItem(id,(+localStorage.getItem(id)||0)+1);
+function resetarSeNovaSemana() {
+  const semanaSalva = localStorage.getItem(WEEK_KEY);
+  const semanaAtual = getSemanaAtual();
+
+  if (semanaSalva != semanaAtual) {
+    localStorage.setItem(WEEK_KEY, semanaAtual);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({}));
+  }
 }
 
-function render(){
-  const ordenados = [...produtos].sort((a,b)=>(localStorage.getItem(b.id)||0)-(localStorage.getItem(a.id)||0));
-  document.getElementById("emAlta").innerHTML = ordenados.slice(0,3).map(p=>card(p,true)).join("");
-  document.getElementById("listaProdutos").innerHTML = ordenados.map(p=>card(p,false)).join("");
+function registrarClique(id) {
+  resetarSeNovaSemana();
+
+  const dados = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  dados[id] = (dados[id] || 0) + 1;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(dados));
 }
 
-function card(p,alta){
-  return `
-  <div class="card">
-    <div class="product-img"><img src="${p.img}"></div>
-    <div class="card-content">
-      ${alta?'<span class="badge">🔥 Em alta</span>':''}
-      <h2>${p.nome}</h2>
-      <p>${p.desc}</p>
-      <a class="btn" href="${p.link}" target="_blank" onclick="clique(${p.id})">Ver no Amazon</a>
-    </div>
-  </div>`;
+function destacarProdutoEmAlta() {
+  resetarSeNovaSemana();
+
+  const dados = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {};
+  let maisClicado = null;
+  let max = 0;
+
+  for (const id in dados) {
+    if (dados[id] > max) {
+      max = dados[id];
+      maisClicado = id;
+    }
+  }
+
+  if (!maisClicado) return;
+
+  const container = document.getElementById("produtos");
+  const card = document.querySelector(`[data-id="${maisClicado}"]`);
+  if (!card) return;
+
+  card.classList.add("hot");
+  card.insertAdjacentHTML("afterbegin", `<div class="badge-hot">🔥 Em alta</div>`);
+  card.querySelector(".btn").classList.add("hot-btn");
+
+  container.prepend(card);
 }
 
-render();
+destacarProdutoEmAlta();
 </script>
 
 </body>
